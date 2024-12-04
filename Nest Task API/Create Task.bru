@@ -1,0 +1,21 @@
+meta {
+  name: Create Task
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{host}}/task
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id": "id da tarefa",
+    "title": "Limpar a casa",
+    "description": "Varer a casa e lavar a louça",
+    "status": "pendente",
+    "expirationDate": "2024-12-04"
+  }
+}
