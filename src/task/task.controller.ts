@@ -8,7 +8,6 @@ export class TaskController {
 
   @Post()
   create(@Body() taskDto: TaskDto) {
-    console.log(taskDto);
     return taskDto;
   }
 

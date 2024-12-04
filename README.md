@@ -1,6 +1,10 @@
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
+<p>
+Breno Veras Curso NestJS
+<a href="https://www.youtube.com/watch?v=gIBm4YfI3JE&list=PLpcf8hdkpCYseV2ctwAhE4dY-AQ7v5D9S&index=6"></a>
+</p>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
