@@ -55,4 +55,8 @@ export class TaskService {
   getAllTasks() {
     return this.tasks;
   }
+
+  findTaskById(id: string): TaskDto | undefined {
+    return this.tasks.find(x => x.id === id);
+  }
 }
