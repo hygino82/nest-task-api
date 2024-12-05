@@ -57,6 +57,17 @@ export class TaskService {
   }
 
   findTaskById(id: string): TaskDto | undefined {
-    return this.tasks.find(x => x.id === id);
+    return this.tasks.find((x) => x.id === id);
+  }
+
+  updateTaskById(id: string, task: TaskDto) {
+    const res = this.tasks.find((x) => x.id === id);
+
+    if (res) {
+      // Adicionando uma verificação para garantir que o item foi encontrado
+      res.status = task.status;
+      res.description = task.description;
+    }
+    return res;
   }
 }

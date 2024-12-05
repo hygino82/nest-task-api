@@ -1,0 +1,20 @@
+meta {
+  name: Update Task by Id
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{host}}/task/2
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "Alimentar o gato",
+    "description": "Dar ração e água ao gato",
+    "status": "pendente",
+    "expirationDate": "2024-12-04"
+  }
+}
