@@ -5,7 +5,11 @@ meta {
 }
 
 get {
-  url: {{host}}/task
+  url: {{host}}/task?status=pendente
   body: none
   auth: none
+}
+
+params:query {
+  status: pendente
 }
