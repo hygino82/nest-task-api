@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { TaskDto } from './task.dto';
 
 @Injectable()
@@ -57,17 +57,43 @@ export class TaskService {
   }
 
   findTaskById(id: string): TaskDto | undefined {
-    return this.tasks.find((x) => x.id === id);
+    const res = this.tasks.find((x) => x.id === id);
+
+    if (res) {
+      return res;
+    }
+
+    throw new HttpException(
+      `Não existe tarefa com o id: ${id}`,
+      HttpStatus.NOT_FOUND,
+    );
   }
 
   updateTaskById(id: string, task: TaskDto) {
     const res = this.tasks.find((x) => x.id === id);
 
     if (res) {
-      // Adicionando uma verificação para garantir que o item foi encontrado
       res.status = task.status;
       res.description = task.description;
+      res.title = task.title;
+      return res;
+    } else {
+      throw new HttpException(
+        `Não existe tarefa com o id: ${id}`,
+        HttpStatus.BAD_REQUEST,
+      );
     }
-    return res;
+  }
+
+  deleteById(id: string) {
+    const res = this.tasks.find((x) => x.id === id);
+    if (res) {
+      this.tasks = this.tasks.filter((x) => x.id != id);
+    } else {
+      throw new HttpException(
+        `Não existe tarefa com o id: ${id}`,
+        HttpStatus.BAD_REQUEST,
+      );
+    }
   }
 }
